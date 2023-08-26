@@ -47,9 +47,10 @@ echo -e
 echo -e "[STATUS] Configuring GitLab token for cloning repo"
 
 read -p 'Please enter GitLab username: ' USERNAME
+read -p 'Please enter GitLab Personal Access Token: ' PAT
 git config --global credential."https://git.doit.wisc.edu".helper store --replace-all 
 GITHUB_USER=$USERNAME 
-GITHUB_TOKEN=glpat-Qj7zkCkAxkgbM11EJTET
+GITHUB_TOKEN=$PAT
 echo "https://$GITHUB_USER:$GITHUB_TOKEN@git.doit.wisc.edu" >> ~/.git-credentials
 
 echo -e "${GREEN}[STATUS] GitLab token configured successfully${WHITE}"
