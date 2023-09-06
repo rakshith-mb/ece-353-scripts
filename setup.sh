@@ -37,6 +37,17 @@ echo -e "${GREEN}[STATUS] Proceeding forward with the setup script${WHITE}"
 echo -e
 echo -e "[STATUS] Creating manifest file"
 
+read -p "Are you using a CAE machine? (y/n)" cae
+
+if [ "$cae" = "y" ] || [ "$cae" = "Y" ];
+then
+    username=$(whoami)
+    echo -e "[STATUS] Creating manifest file in the C Drive of CAE machine"
+    cat > /c/Users/$username/.modustoolbox/manifest.loc <<EOF
+    https://raw.githubusercontent.com/rakshith-mb/ece-353-mtb-super-manifest/main/ece-353-mtb-super-manifest.xml
+EOF
+fi
+
 cat > $HOME/.modustoolbox/manifest.loc <<EOF
 https://raw.githubusercontent.com/rakshith-mb/ece-353-mtb-super-manifest/main/ece-353-mtb-super-manifest.xml
 EOF
