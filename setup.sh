@@ -47,7 +47,7 @@ if [ "$cae" = "y" ] || [ "$cae" = "Y" ];
 then
     username=$(whoami)
     echo -e "[STATUS] Creating manifest file in the C Drive of CAE machine"
-    mkdir -p /c/Users/$username/.modustoolbox && cp $HOME/.modustoolbox/manifest.loc /c/Users/$username/.modustoolbox/manifest.loc
+    mkdir -p C:/Users/$username/.modustoolbox && cp $HOME/.modustoolbox/manifest.loc C:/Users/$username/.modustoolbox/manifest.loc
 fi
 
 echo -e "${GREEN}[STATUS] Manifest file creation successful${WHITE}"
