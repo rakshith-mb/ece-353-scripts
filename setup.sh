@@ -39,18 +39,16 @@ echo -e "[STATUS] Creating manifest file"
 
 read -p "Are you using a CAE machine? (y/n)" cae
 
+cat > $HOME/.modustoolbox/manifest.loc <<EOF
+https://raw.githubusercontent.com/rakshith-mb/ece-353-mtb-super-manifest/main/ece-353-mtb-super-manifest.xml
+EOF
+
 if [ "$cae" = "y" ] || [ "$cae" = "Y" ];
 then
     username=$(whoami)
     echo -e "[STATUS] Creating manifest file in the C Drive of CAE machine"
-    cat > /c/Users/$username/.modustoolbox/manifest.loc <<EOF
-    https://raw.githubusercontent.com/rakshith-mb/ece-353-mtb-super-manifest/main/ece-353-mtb-super-manifest.xml
-EOF
+    mkdir -p /c/Users/$username/.modustoolbox && cp $HOME/.modustoolbox/manifest.loc /c/Users/$username/.modustoolbox/manifest.loc
 fi
-
-cat > $HOME/.modustoolbox/manifest.loc <<EOF
-https://raw.githubusercontent.com/rakshith-mb/ece-353-mtb-super-manifest/main/ece-353-mtb-super-manifest.xml
-EOF
 
 echo -e "${GREEN}[STATUS] Manifest file creation successful${WHITE}"
 echo -e
