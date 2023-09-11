@@ -39,6 +39,7 @@ echo -e "[STATUS] Creating manifest file"
 
 read -p "Are you using a CAE machine? (y/n)" cae
 
+mkdir -p $HOME/.modustoolbox/
 cat > $HOME/.modustoolbox/manifest.loc <<EOF
 https://raw.githubusercontent.com/rakshith-mb/ece-353-mtb-super-manifest/main/ece-353-mtb-super-manifest.xml
 EOF
